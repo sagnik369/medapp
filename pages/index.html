@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset = "UTF-8">
+        <meta name = "MediCO" content = "Simple Inventory">
+        <title>MediCO home</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+        <style>
+            body {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
+            .nav {
+                background-color: burlywood;
+                width: 100vw;
+                height: 200px;
+            }
+            .brand {
+                padding-left: 70px;
+                padding-top: 7%;
+            }
+            .brand-link {
+                text-decoration: none;
+                color: darkgreen;
+                font-size: 50px;
+                font-weight: 400;
+                letter-spacing: 3px;
+            }
+            .background-image {
+                width: 100vw;
+                height: 100vh;
+            }
+            .image {
+                width: 100%;
+                height: 100%;
+            }
+            .image-top {
+                position: absolute;
+                top: 20%;
+                padding: 100px;
+            }
+            .heading {
+                color: seagreen;
+                text-shadow: 3px 3px rgb(0, 0, 0);
+                font-size: 90px;
+                text-align: center;
+                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            }
+            .sub-heading{
+                font-size: 40px;
+                text-align: center;
+            }
+            .btn-link {
+                margin-left: 25%;
+                margin-top: 10%;
+                background-color: dodgerblue;
+                border-color: dodgerblue;
+                border-radius: 20px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 400px;
+                height: 150px;
+                font-size: 40px;
+                text-decoration: none;
+                color: ghostwhite;
+                letter-spacing: 2px;
+            }
+            .btn-link:active {
+               background-color: snow;
+               color: dodgerblue;
+               border: 5px solid grey;
+            }
+        </style>
+    </head>
+    <body>
+        <nav class = "nav">
+            <div class = "brand"><a class = "brand-link" href="/">MEDICO</a></div>
+        </nav>
+        <div class="background-image">
+            <img class="image" src="https://i.vimeocdn.com/video/1118571650_1280" alt="person-sorting-pills">
+        </div>
+        <div class="image-top">
+            <p class="heading">Manage your medicines easily</p>
+            <p class="sub-heading">Enter inventory</p>
+            <hr><br>
+            <a class="btn-link" href="/inventory">Continue</a>
+        </div>
+    </body>
+</html>
