@@ -6,11 +6,11 @@ html
         link(href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous")
 
         style.
-             body {
+            * {
                 margin: 0;
                 padding: 0;
             }
-            .nav {
+            .header {
                 background-color: burlywood;
                 width: 100vw;
                 height: 200px;
@@ -20,11 +20,11 @@ html
                 padding-top: 7%;
                 text-decoration: none;
                 color: darkgreen;
-                font-size: 50px;
+                font-size: 4rem;
                 font-weight: 400;
                 letter-spacing: 3px;
             }
-            .navbar-nav {
+            .navbar {
                 display: inline-block;
                 padding-top: 8%;
                 padding-left: 100px;
@@ -32,38 +32,37 @@ html
             .nav-item {
                 text-decoration: none;
                 color: darkgreen;
-                font-size: 40px;
-                font-weight: 100;
+                font-size: 2.5rem;
+                font-weight: 300;
                 padding-left: 40px;
             }
             .container {
                 margin-top: 20%;
-                font-size: 40px;
-            }
-            .form-control::placeholder{
-                font-size: 25px;
-            }
-            .form-control {
-                height: 100px;
             }
             .form-input {
                 margin-top: 80px;
-                font-size: 1.3em;
+            }
+            .form-control {
+                font-size: 3rem;
+                height: 100px;
+            }
+            .form-label {
+                font-size: 3.4rem;
             }
             .btn {
                 height: 100px;
                 width: 200px;
                 margin-top: 50px;
-                font-size: 1em;
+                font-size: 2.5rem;
             }
 
     body 
-        nav(class="nav")
+        nav(class="header")
 
                 a(class="brand" href="/") MEDICO
 
 
-                div(class="navbar-nav")
+                div(class="navbar")
 
                     a(class="nav-item" href="/form") Add medicine
 
@@ -74,15 +73,15 @@ html
                 div(class="col-lg-12")
                     form(method="post" action="/added" class="form-group")
                         div(class="form-input")
-                            label(for="name") Medicine name
-                            input(type="text" placeholder="Medicine name" name="name" class="form-control")
+                            label(for="name" class="form-label") Medicine name
+                            input(type="text" id="name" name="name" class="form-control")
 
                         div(class="form-input")
-                            label(for="count") No of medicines
-                            input(type="number" placeholder="No of medicines" name="count" class="form-control")
+                            label(for="count" class="form-label") No of medicines
+                            input(type="number" id="count" name="count" class="form-control")
 
                         div(class="form-input")
-                            label(for="brand") Brand
-                            input(type="text" placeholder="Brand" name="brand" class="form-control")
+                            label(for="brand" class="form-label") Brand
+                            input(type="text" id="brand" name="brand" class="form-control")
 
                         button(type="submit" class="btn btn-primary") Add    

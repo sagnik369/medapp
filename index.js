@@ -41,7 +41,7 @@ app.post('/added', (req, res) => {
     
     connection.connect();
      let post = {NAME: req.body.name, COUNT: req.body.count, BRAND: req.body.brand};
-     let query = 'INSERT INTO inventory SET ?';
+     let query = 'INSERT INTO inventory SET ?;';
      connection.query(query, post);
      let query1 = 'SELECT * FROM inventory';
      connection.query(query1, (err, rows, fields) => {

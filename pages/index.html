@@ -6,7 +6,7 @@
         <title>MediCO home</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
         <style>
-            body {
+            * {
                 box-sizing: border-box;
                 margin: 0;
                 padding: 0;
@@ -23,21 +23,14 @@
             .brand-link {
                 text-decoration: none;
                 color: darkgreen;
-                font-size: 50px;
+                font-size: 3.8rem;
                 font-weight: 400;
                 letter-spacing: 3px;
             }
-            .background-image {
+            .hero {
                 width: 100vw;
                 height: 100vh;
-            }
-            .image {
-                width: 100%;
-                height: 100%;
-            }
-            .image-top {
-                position: absolute;
-                top: 20%;
+                background-image: url("https://i.vimeocdn.com/video/1118571650_1280");
                 padding: 100px;
             }
             .heading {
@@ -51,7 +44,7 @@
                 font-size: 40px;
                 text-align: center;
             }
-            .btn-link {
+            .link {
                 margin-left: 25%;
                 margin-top: 10%;
                 background-color: dodgerblue;
@@ -62,12 +55,12 @@
                 align-items: center;
                 width: 400px;
                 height: 150px;
-                font-size: 40px;
+                font-size: 2.6rem;
                 text-decoration: none;
                 color: ghostwhite;
                 letter-spacing: 2px;
             }
-            .btn-link:active {
+            .link:active {
                background-color: snow;
                color: dodgerblue;
                border: 5px solid grey;
@@ -75,17 +68,14 @@
         </style>
     </head>
     <body>
-        <nav class = "nav">
-            <div class = "brand"><a class = "brand-link" href="/">MEDICO</a></div>
+        <nav class="nav">
+            <div class="brand"><a class="brand-link" href="/">MEDICO</a></div>
         </nav>
-        <div class="background-image">
-            <img class="image" src="https://i.vimeocdn.com/video/1118571650_1280" alt="person-sorting-pills">
-        </div>
-        <div class="image-top">
+        <div class="hero">
             <p class="heading">Manage your medicines easily</p>
             <p class="sub-heading">Enter inventory</p>
             <hr><br>
-            <a class="btn-link" href="/inventory">Continue</a>
+            <a class="link" href="/inventory">Continue</a>
         </div>
     </body>
 </html>
