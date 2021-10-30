@@ -1,5 +1,5 @@
 //------IMPORT DEPENDENCIES------
-
+require("dotenv").config();
 const express = require('express');
 const mysql = require('mysql');
 const bodyParser = require('body-parser');
@@ -33,10 +33,10 @@ app.get('/form', (req, res) => {
 app.post('/added', (req, res) => {
 
     const connection = mysql.createConnection({
-        host: 'localhost',
-        user: 'root',
-        password: '369369',
-        database: 'medapp'
+        host: process.env.host,
+        user: process.env.user,
+        password: process.env.password,
+        database: process.env.database
     });
     
     connection.connect();
@@ -56,10 +56,10 @@ app.post('/added', (req, res) => {
 app.get('/inventory', (req, res) => {
 
     const connection = mysql.createConnection({
-        host: 'localhost',
-        user: 'root',
-        password: '369369',
-        database: 'medapp'
+        host: process.env.host,
+        user: process.env.user,
+        password: process.env.password,
+        database: process.env.database
     });
     
     connection.connect();
@@ -77,10 +77,10 @@ app.get('/inventory', (req, res) => {
 app.get('/delete/:mid', (req, res) => {
 
     const connection = mysql.createConnection({
-        host: 'localhost',
-        user: 'root',
-        password: '369369',
-        database: 'medapp'
+        host: process.env.host,
+        user: process.env.user,
+        password: process.env.password,
+        database: process.env.database
     });
     
     connection.connect();
