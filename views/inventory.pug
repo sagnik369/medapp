@@ -2,62 +2,80 @@ DOCTYPE
 html
     head
         meta(charset="UTF-8")
-        title MediCO inventory
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
         link(href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous")
+        title MediCO inventory
 
         style. 
             * {
                 margin: 0;
                 padding: 0;
             }
+            html {
+                font-size: 62.5%;
+            }
             .header {
                 background-color: burlywood;
                 width: 100vw;
-                height: 200px;
+                height: 8rem;
                 margin-bottom: 1rem;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
             }
             .brand {
-                padding-left: 70px;
-                padding-top: 7%;
                 text-decoration: none;
                 color: darkgreen;
-                font-size: 4rem;
-                font-weight: 400;
+                padding-left: 3rem;
+                font-size: 2.6rem;
+                font-weight: 500;
                 letter-spacing: 3px;
             }
             .navbar {
-                display: inline-block;
-                padding-top: 8%;
-                padding-left: 100px;
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+                padding-right: 3rem;
+                gap: 1rem;
             }
             .nav-item {
                 text-decoration: none;
                 color: darkgreen;
-                font-size: 2.5rem;
-                font-weight: 300;
-                padding-left: 40px;
+                font-size: 1.6rem;
+                font-weight: 400;
             }
             .thead {
-                height: 100px;
-                font-size: 4rem;
+                height: 10rem;
+                font-size: 2.3rem;
             }
             .trow {
-                font-size: 3.5rem;
+                font-size: 2rem;
                 font-weight: 300;
+            }
+            .delete {
+                padding: 4.rem 2rem;
+                font-size: 1.4rem
+            }
+            .med-id {
+                display: none;
+            }
+            @media (min-width: 700px) {
+                html {
+                    font-size: 70%;
+                }
+                .navbar {
+                    gap: 6rem;
+                }
             }
             
     body
 
         nav(class="header")
-
                 a(class="brand" href="/") MEDICO
-
-
                 div(class="navbar")
-
                     a(class="nav-item" href="/form") Add medicine
-
                     a(class="nav-item" href="/inventory") Inventory
+        
         
         table(class="table")
             thead
@@ -65,8 +83,18 @@ html
                     th Name
                     th No.
                     th Brand
+                    th Delete
                 each item in items
                  tr(class="trow")
+                    td(class="med-id") #{item.MID}
                     td #{item.name}
                     td #{item.count}
                     td #{item.brand}
+                    td
+                        button(type="submit" class="delete btn btn-danger" onclick="delItem(this)") Delete 
+        script.
+            const delItem = (e) => {
+                let mid = e.parentNode.parentNode.children[0].innerHTML;
+                fetch("/delete/" + mid);
+                e.parentNode.parentNode.innerHTML = '';
+            }

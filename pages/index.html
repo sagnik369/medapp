@@ -1,63 +1,70 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset = "UTF-8">
-        <meta name = "MediCO" content = "Simple Inventory">
-        <title>MediCO home</title>
+        <meta charset="UTF-8">
+        <meta name="MediCO" content="Simple Inventory">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+        <title>MediCO home</title>
         <style>
             * {
-                box-sizing: border-box;
                 margin: 0;
                 padding: 0;
             }
-            .nav {
+            html {
+                font-size: 62.5%;
+            }
+            body {
+                overflow: hidden;
+                height: 100vh;
+            }
+            .header {
                 background-color: burlywood;
                 width: 100vw;
-                height: 200px;
+                height: 8rem;
+                margin-bottom: 1rem;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
             }
             .brand {
-                padding-left: 70px;
-                padding-top: 7%;
-            }
-            .brand-link {
                 text-decoration: none;
                 color: darkgreen;
-                font-size: 3.8rem;
-                font-weight: 400;
+                padding-left: 3rem;
+                font-size: 2.6rem;
+                font-weight: 500;
                 letter-spacing: 3px;
             }
             .hero {
+                margin-top: -1rem;
+                padding: 20% 3rem;
                 width: 100vw;
                 height: 100vh;
                 background-image: url("https://i.vimeocdn.com/video/1118571650_1280");
-                padding: 100px;
+                background-repeat: no-repeat;
+                background-size: 100vw 100vh;
             }
             .heading {
                 color: seagreen;
-                text-shadow: 3px 3px rgb(0, 0, 0);
-                font-size: 90px;
+                text-shadow: 2px 2px rgba(0, 0, 0, 0.7);
+                font-size: 4rem;
                 text-align: center;
                 font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
             }
             .sub-heading{
-                font-size: 40px;
+                font-size: 3rem;
                 text-align: center;
             }
             .link {
-                margin-left: 25%;
-                margin-top: 10%;
-                background-color: dodgerblue;
-                border-color: dodgerblue;
-                border-radius: 20px;
+                margin: 10% auto;
+                border-radius: 1rem;
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                width: 400px;
-                height: 150px;
-                font-size: 2.6rem;
-                text-decoration: none;
-                color: ghostwhite;
+                width: 15rem;
+                height: 6rem;
+                font-size: 2.2rem;
+                
                 letter-spacing: 2px;
             }
             .link:active {
@@ -65,17 +72,25 @@
                color: dodgerblue;
                border: 5px solid grey;
             }
+            @media (min-width: 700px) {
+                .hero {
+                    padding: 20rem 3rem;
+                }
+                .link {
+                    margin: 4rem auto;
+                }
+            }
         </style>
     </head>
     <body>
-        <nav class="nav">
-            <div class="brand"><a class="brand-link" href="/">MEDICO</a></div>
+        <nav class="header">
+            <a class="brand" href="/">MEDICO</a>
         </nav>
         <div class="hero">
             <p class="heading">Manage your medicines easily</p>
             <p class="sub-heading">Enter inventory</p>
             <hr><br>
-            <a class="link" href="/inventory">Continue</a>
+            <a class="link btn btn-primary" href="/inventory">Continue</a>
         </div>
     </body>
 </html>

@@ -14,7 +14,7 @@ app.set('view engine', 'pug');
 
 //---SET BODY-PARSER------
 
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: false }));
 
 //------HOME PAGE------
 
@@ -40,15 +40,14 @@ app.post('/added', (req, res) => {
     });
     
     connection.connect();
-     let post = {NAME: req.body.name, COUNT: req.body.count, BRAND: req.body.brand};
-     let query = 'INSERT INTO inventory SET ?;';
-     connection.query(query, post);
-     let query1 = 'SELECT * FROM inventory';
-     connection.query(query1, (err, rows, fields) => {
-         res.render('inventory.pug', {
-             items: rows
-         })
-     });
+    let query = `INSERT INTO inventory(NAME, COUNT, BRAND) VALUES("${req.body.name}", ${req.body.count}, "${req.body.brand}");`;
+    connection.query(query);
+    let query1 = 'SELECT * FROM inventory';
+    connection.query(query1, (err, rows) => {
+        res.render('inventory.pug', {
+            items: rows
+        })
+    });
     connection.end();
 });
 
@@ -64,8 +63,8 @@ app.get('/inventory', (req, res) => {
     });
     
     connection.connect();
-     let query = 'SELECT * FROM inventory';
-     connection.query(query, (err, rows, fields) => {
+     let query = 'SELECT * FROM inventory;';
+     connection.query(query, (err, rows) => {
          res.render('inventory.pug', {
             items: rows
          })
@@ -75,7 +74,7 @@ app.get('/inventory', (req, res) => {
 
 //------DELETE FROM TABLE------
 
-app.post('/delete/:mid', (req, res) => {
+app.get('/delete/:mid', (req, res) => {
 
     const connection = mysql.createConnection({
         host: 'localhost',
@@ -85,15 +84,8 @@ app.post('/delete/:mid', (req, res) => {
     });
     
     connection.connect();
-     let post = {MID: req.params.mid};
-     let query = 'DELETE FROM inventory SET ?';
-     connection.query(query, post);
-     let query1 = 'SELECT * FROM inventory';
-     connection.query(query1, (err, rows, fields) => {
-         res.render('inventory.pug', {
-             items: rows
-         })
-     });
+     let query = `DELETE FROM inventory WHERE MID = ${req.params.mid};`;
+     connection.query(query);
     connection.end();
 });
 
